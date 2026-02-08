@@ -1,0 +1,313 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>옥토스튜디오 코딩 수업</title>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg-color: #f7f9fc;
+            --card-bg: #ffffff;
+            --primary-color: #3b82f6;
+            --text-color: #333333;
+            --accent-color: #ff6b6b;
+        }
+
+        body {
+            font-family: 'Noto Sans KR', sans-serif; /* 가독성 좋은 고딕체 */
+            background-color: var(--bg-color);
+            margin: 0;
+            padding: 20px;
+            color: var(--text-color);
+            line-height: 1.6;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        header {
+            text-align: center;
+            margin-bottom: 50px;
+            padding: 20px;
+            background-color: #e3f2fd;
+            border-radius: 20px;
+        }
+
+        h1 {
+            color: #1565c0;
+            font-size: 2.2rem;
+            margin: 0;
+            word-break: keep-all;
+        }
+
+        .intro-text {
+            font-size: 1.1rem;
+            color: #555;
+            margin-top: 10px;
+        }
+
+        /* 활동 카드 디자인 */
+        .activity-card {
+            background: var(--card-bg);
+            border-radius: 20px;
+            padding: 40px;
+            margin-bottom: 40px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+            border: 1px solid #e1e8ed;
+        }
+
+        .activity-header {
+            border-bottom: 3px solid #f0f0f0;
+            padding-bottom: 20px;
+            margin-bottom: 20px;
+        }
+
+        .activity-title {
+            font-size: 1.8rem;
+            color: var(--primary-color);
+            font-weight: 700;
+            margin-bottom: 10px;
+        }
+
+        .activity-desc {
+            font-size: 1.3rem; /* 저학년을 위해 글자 크기 키움 */
+            color: #444;
+            background-color: #f8f9fa;
+            padding: 15px;
+            border-radius: 10px;
+            font-weight: bold;
+        }
+
+        /* 단계별 리스트 */
+        .step-list {
+            list-style: none;
+            padding: 0;
+        }
+
+        .step-item {
+            margin-bottom: 25px;
+            font-size: 1.3rem; /* 설명 글자 크기 확대 */
+            display: flex;
+            align-items: flex-start;
+        }
+
+        .step-number {
+            background: var(--primary-color);
+            color: white;
+            min-width: 35px;
+            height: 35px;
+            border-radius: 50%;
+            text-align: center;
+            line-height: 35px;
+            margin-right: 15px;
+            font-weight: bold;
+            font-size: 1.1rem;
+            flex-shrink: 0;
+        }
+
+        /* 주의사항 박스 */
+        .warning-box {
+            background-color: #fff0f0;
+            border: 2px solid #ffcccc;
+            border-radius: 15px;
+            padding: 20px;
+            margin: 20px 0;
+        }
+
+        .warning-title {
+            color: #d32f2f;
+            font-weight: bold;
+            font-size: 1.3rem;
+            margin-bottom: 10px;
+            display: flex;
+            align-items: center;
+        }
+
+        .warning-text {
+            font-size: 1.2rem;
+            color: #d32f2f;
+        }
+
+        /* 코딩 블록 이미지 영역 */
+        .code-area {
+            background: #f1f3f5;
+            border-radius: 15px;
+            padding: 30px;
+            margin-top: 20px;
+            text-align: center; /* 블록 가운데 정렬 */
+            border: 2px dashed #cbd5e0;
+        }
+
+        .code-area p {
+            font-size: 1.1rem;
+            color: #666;
+            margin-bottom: 20px;
+            font-weight: bold;
+        }
+
+        /* 실제 블록 이미지가 들어갈 클래스 */
+        .block-img {
+            height: 60px; /* 블록 높이 조절 */
+            margin: 5px;
+            vertical-align: middle;
+            /* 그림자 효과 */
+            filter: drop-shadow(2px 4px 6px rgba(0,0,0,0.1));
+        }
+
+        .arrow {
+            font-size: 2rem;
+            color: #bbb;
+            vertical-align: middle;
+            margin: 0 10px;
+        }
+
+        @media (max-width: 600px) {
+            h1 { font-size: 1.8rem; }
+            .activity-card { padding: 20px; }
+            .step-item { font-size: 1.1rem; }
+            .block-img { height: 40px; } /* 모바일에서는 블록 작게 */
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <header>
+        <h1>🎬 옥토스튜디오로 만드는<br>나만의 움직이는 이야기</h1>
+        <p class="intro-text">오늘은 내가 코딩 감독님! 재미있는 이야기를 만들어 볼까요?</p>
+    </header>
+
+    <div class="activity-card">
+        <div class="activity-header">
+            <div class="activity-title">활동 1: 나만의 캐릭터 만들기</div>
+            <div class="activity-desc">
+                "안녕? 나는 OOO이야!"<br>
+                옥토스튜디오를 활용해 나를 소개하는 영상을 만들어 볼까요?<br>
+                사진과 말하기 블록을 이용해 친구들에게 인사해 보세요.
+            </div>
+        </div>
+        
+        <div class="warning-box">
+            <div class="warning-title">✋ 잠깐! 꼭 약속해요</div>
+            <div class="warning-text">
+                내 얼굴은 찍어도 되지만, <strong>다른 친구의 얼굴을 허락 없이 찍으면 안 돼요.</strong><br>
+                오늘은 <strong>'나의 얼굴'</strong>만 찍어서 캐릭터로 만들어 주세요.
+            </div>
+        </div>
+
+        <ul class="step-list">
+            <li class="step-item">
+                <span class="step-number">1</span>
+                <div>
+                    스프라이트 추가(+) 버튼을 누르고 <strong>[📷 촬영하기]</strong>를 선택해요.
+                </div>
+            </li>
+            <li class="step-item">
+                <span class="step-number">2</span>
+                <div>
+                    카메라로 내 얼굴을 찰칵! 찍고, 얼굴 모양을 따라 예쁘게 오려주세요.
+                </div>
+            </li>
+            <li class="step-item">
+                <span class="step-number">3</span>
+                <div>
+                    아래 그림처럼 블록을 연결해서 내 캐릭터가 말을 하게 해보세요.
+                </div>
+            </li>
+        </ul>
+
+        <div class="code-area">
+            <p>👇 블록을 이렇게 연결해 보세요!</p>
+            <img src="https://via.placeholder.com/150x60/f5a623/ffffff?text=터치하면" class="block-img" alt="시작 블록">
+            <span class="arrow">➡</span>
+            <img src="https://via.placeholder.com/150x60/4a90e2/ffffff?text=말하기(안녕!)" class="block-img" alt="말하기 블록">
+            
+            <br><br>
+            <small>* '안녕!' 글자를 눌러서 하고 싶은 말로 바꿔보세요.</small>
+        </div>
+    </div>
+
+    <div class="activity-card">
+        <div class="activity-header">
+            <div class="activity-title">활동 2: 가방 이동시키기</div>
+            <div class="activity-desc">
+                "가방아, 학교로 가자!"<br>
+                가방을 손가락으로 톡! 누르면 원하는 곳으로 이동하게 해볼까요?<br>
+                가방이 반짝이며 움직이도록 코딩해 봐요.
+            </div>
+        </div>
+
+        <ul class="step-list">
+            <li class="step-item">
+                <span class="step-number">1</span>
+                <div>
+                    배경과 <strong>'가방'</strong> 그림을 화면에 추가해 주세요.
+                </div>
+            </li>
+            <li class="step-item">
+                <span class="step-number">2</span>
+                <div>
+                    가방이 도착할 곳으로 미리 가방을 옮겨놓고 코딩을 시작해요.
+                </div>
+            </li>
+        </ul>
+
+        <div class="code-area">
+            <p>👇 가방이 움직이고 반짝이게 만들어 보세요!</p>
+            
+            <img src="https://via.placeholder.com/150x60/f5a623/ffffff?text=터치하면" class="block-img" alt="시작 블록">
+            <span class="arrow">➡</span>
+            <img src="https://via.placeholder.com/150x60/7ed321/ffffff?text=위치로+이동" class="block-img" alt="이동 블록">
+            <span class="arrow">➡</span>
+            <img src="https://via.placeholder.com/150x60/bd10e0/ffffff?text=반짝이기" class="block-img" alt="효과 블록">
+            
+        </div>
+    </div>
+
+    <div class="activity-card">
+        <div class="activity-header">
+            <div class="activity-title">활동 3: 재미있는 동작 만들기</div>
+            <div class="activity-desc">
+                "축구공은 빙글빙글! 강아지는 멍멍!"<br>
+                여러 가지 캐릭터들이 각자 다르게 움직이게 해볼까요?<br>
+                내 마음대로 재미있는 동작을 만들어 보세요.
+            </div>
+        </div>
+
+        <ul class="step-list">
+            <li class="step-item">
+                <span class="step-number">1</span>
+                <div>
+                    축구공, 강아지, 고양이 등 좋아하는 친구들을 많이 불러오세요.
+                </div>
+            </li>
+            <li class="step-item">
+                <span class="step-number">2</span>
+                <div>
+                    <strong>중요!</strong> 움직이고 싶은 친구를 먼저 콕! 누르고 코딩해야 해요.
+                </div>
+            </li>
+        </ul>
+
+        <div class="code-area">
+            <p>⚽ <strong>축구공</strong>은 빙글빙글 돌아요</p>
+            <img src="https://via.placeholder.com/150x60/f5a623/ffffff?text=터치하면" class="block-img">
+            <span class="arrow">➡</span>
+            <img src="https://via.placeholder.com/150x60/7ed321/ffffff?text=회전하기" class="block-img">
+            
+            <hr style="margin: 20px 0; border: 0; border-top: 1px dashed #ccc;">
+
+            <p>🐶 <strong>강아지</strong>는 소리를 내요</p>
+            <img src="https://via.placeholder.com/150x60/f5a623/ffffff?text=터치하면" class="block-img">
+            <span class="arrow">➡</span>
+            <img src="https://via.placeholder.com/150x60/4a90e2/ffffff?text=재생하기" class="block-img">
+        </div>
+    </div>
+
+</div>
+
+</body>
+</html>
