@@ -14,8 +14,12 @@
             --accent-color: #ff6b6b;
         }
 
+        html {
+            scroll-behavior: smooth; /* 부드럽게 이동 */
+        }
+
         body {
-            font-family: 'Noto Sans KR', sans-serif; /* 가독성 좋은 고딕체 */
+            font-family: 'Noto Sans KR', sans-serif;
             background-color: var(--bg-color);
             margin: 0;
             padding: 20px;
@@ -23,61 +27,108 @@
             line-height: 1.6;
         }
 
+        /* 왼쪽 고정 내비게이션 메뉴 */
+        .sidebar {
+            position: fixed;
+            left: 20px;
+            top: 50%;
+            transform: translateY(-50%); /* 수직 중앙 정렬 */
+            width: 160px;
+            background: white;
+            padding: 20px;
+            border-radius: 20px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+            z-index: 100;
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+
+        .nav-title {
+            text-align: center;
+            font-weight: bold;
+            color: #555;
+            margin-bottom: 5px;
+            font-size: 1.1rem;
+        }
+
+        .nav-link {
+            display: block;
+            padding: 15px 10px;
+            text-decoration: none;
+            color: #555;
+            font-weight: bold;
+            border-radius: 15px;
+            background-color: #f1f3f5;
+            text-align: center;
+            transition: 0.3s;
+            border: 2px solid transparent;
+        }
+
+        .nav-link:hover {
+            background-color: var(--primary-color);
+            color: white;
+            transform: scale(1.05);
+        }
+
+        /* 메인 컨텐츠 영역 (사이드바 공간 확보) */
         .container {
-            max-width: 800px;
+            max-width: 900px;
             margin: 0 auto;
+            margin-left: 220px; /* 사이드바 너비만큼 여백 */
         }
 
         header {
             text-align: center;
             margin-bottom: 50px;
-            padding: 20px;
+            padding: 30px;
             background-color: #e3f2fd;
             border-radius: 20px;
         }
 
         h1 {
             color: #1565c0;
-            font-size: 2.2rem;
+            font-size: 2.5rem;
             margin: 0;
             word-break: keep-all;
         }
 
         .intro-text {
-            font-size: 1.1rem;
+            font-size: 1.2rem;
             color: #555;
-            margin-top: 10px;
+            margin-top: 15px;
         }
 
         /* 활동 카드 디자인 */
         .activity-card {
             background: var(--card-bg);
-            border-radius: 20px;
+            border-radius: 25px;
             padding: 40px;
-            margin-bottom: 40px;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+            margin-bottom: 50px;
+            box-shadow: 0 8px 20px rgba(0,0,0,0.08);
             border: 1px solid #e1e8ed;
+            scroll-margin-top: 20px; /* 이동 시 여백 */
         }
 
         .activity-header {
             border-bottom: 3px solid #f0f0f0;
-            padding-bottom: 20px;
-            margin-bottom: 20px;
+            padding-bottom: 25px;
+            margin-bottom: 30px;
         }
 
         .activity-title {
-            font-size: 1.8rem;
+            font-size: 2rem;
             color: var(--primary-color);
             font-weight: 700;
-            margin-bottom: 10px;
+            margin-bottom: 15px;
         }
 
         .activity-desc {
-            font-size: 1.3rem; /* 저학년을 위해 글자 크기 키움 */
+            font-size: 1.4rem;
             color: #444;
             background-color: #f8f9fa;
-            padding: 15px;
-            border-radius: 10px;
+            padding: 20px;
+            border-radius: 15px;
             font-weight: bold;
         }
 
@@ -88,91 +139,159 @@
         }
 
         .step-item {
-            margin-bottom: 25px;
-            font-size: 1.3rem; /* 설명 글자 크기 확대 */
+            margin-bottom: 40px;
+            font-size: 1.4rem;
             display: flex;
             align-items: flex-start;
+            flex-direction: column;
+        }
+        
+        @media (min-width: 768px) {
+            .step-item {
+                flex-direction: row;
+            }
         }
 
         .step-number {
             background: var(--primary-color);
             color: white;
-            min-width: 35px;
-            height: 35px;
+            min-width: 40px;
+            height: 40px;
             border-radius: 50%;
             text-align: center;
-            line-height: 35px;
-            margin-right: 15px;
+            line-height: 40px;
+            margin-right: 20px;
+            margin-bottom: 10px;
             font-weight: bold;
-            font-size: 1.1rem;
+            font-size: 1.2rem;
             flex-shrink: 0;
+        }
+
+        /* 단계별 이미지 컨테이너 */
+        .step-img-container {
+            display: flex;
+            gap: 15px;
+            margin-top: 20px;
+            flex-wrap: wrap;
+        }
+
+        .step-screenshot {
+            max-width: 100%;
+            height: auto;
+            max-height: 350px;
+            border-radius: 12px;
+            border: 3px solid #eee;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+            object-fit: contain;
         }
 
         /* 주의사항 박스 */
         .warning-box {
             background-color: #fff0f0;
-            border: 2px solid #ffcccc;
+            border: 3px solid #ffcccc;
             border-radius: 15px;
-            padding: 20px;
-            margin: 20px 0;
+            padding: 25px;
+            margin: 30px 0;
         }
 
         .warning-title {
             color: #d32f2f;
             font-weight: bold;
-            font-size: 1.3rem;
+            font-size: 1.5rem;
             margin-bottom: 10px;
             display: flex;
             align-items: center;
         }
 
         .warning-text {
-            font-size: 1.2rem;
+            font-size: 1.3rem;
             color: #d32f2f;
         }
 
         /* 코딩 블록 이미지 영역 */
         .code-area {
             background: #f1f3f5;
-            border-radius: 15px;
-            padding: 30px;
-            margin-top: 20px;
-            text-align: center; /* 블록 가운데 정렬 */
-            border: 2px dashed #cbd5e0;
+            border-radius: 20px;
+            padding: 40px;
+            margin-top: 30px;
+            text-align: center;
+            border: 3px dashed #cbd5e0;
         }
 
         .code-area p {
-            font-size: 1.1rem;
-            color: #666;
-            margin-bottom: 20px;
+            font-size: 1.4rem;
+            color: #444;
+            margin-bottom: 25px;
             font-weight: bold;
         }
 
-        /* 실제 블록 이미지가 들어갈 클래스 */
+        .hint-img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 15px;
+            box-shadow: 0 6px 12px rgba(0,0,0,0.15);
+        }
+
         .block-img {
-            height: 60px; /* 블록 높이 조절 */
-            margin: 5px;
+            height: 80px;
+            margin: 8px;
             vertical-align: middle;
-            /* 그림자 효과 */
-            filter: drop-shadow(2px 4px 6px rgba(0,0,0,0.1));
+            filter: drop-shadow(3px 5px 8px rgba(0,0,0,0.15));
         }
 
         .arrow {
-            font-size: 2rem;
+            font-size: 2.5rem;
             color: #bbb;
             vertical-align: middle;
-            margin: 0 10px;
+            margin: 0 15px;
+        }
+
+        /* 모바일 등 작은 화면용 스타일 */
+        @media (max-width: 1100px) {
+            .sidebar {
+                position: static;
+                transform: none;
+                width: auto;
+                display: flex;
+                flex-direction: row;
+                justify-content: center;
+                gap: 10px;
+                margin-bottom: 30px;
+                background: transparent;
+                box-shadow: none;
+                padding: 0;
+            }
+            .container {
+                margin: 0 auto;
+                margin-left: 0;
+            }
+            .nav-link {
+                flex: 1;
+                margin-bottom: 0;
+                font-size: 0.9rem;
+                padding: 10px;
+                background: white;
+                box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+            }
+            .nav-title { display: none; } /* 모바일에서 타이틀 숨김 */
         }
 
         @media (max-width: 600px) {
-            h1 { font-size: 1.8rem; }
-            .activity-card { padding: 20px; }
-            .step-item { font-size: 1.1rem; }
-            .block-img { height: 40px; } /* 모바일에서는 블록 작게 */
+            h1 { font-size: 2rem; }
+            .activity-card { padding: 25px; }
+            .block-img { height: 50px; }
+            .step-screenshot { max-height: none; }
         }
     </style>
 </head>
 <body>
+
+<nav class="sidebar">
+    <div class="nav-title">바로가기</div>
+    <a href="#act1" class="nav-link">😊 활동 1<br>캐릭터 만들기</a>
+    <a href="#act2" class="nav-link">🧹 활동 2<br>정리정돈</a>
+    <a href="#act3" class="nav-link">✨ 활동 3<br>홀로그램</a>
+</nav>
 
 <div class="container">
     <header>
@@ -180,7 +299,7 @@
         <p class="intro-text">오늘은 내가 코딩 감독님! 재미있는 이야기를 만들어 볼까요?</p>
     </header>
 
-    <div class="activity-card">
+    <div id="act1" class="activity-card">
         <div class="activity-header">
             <div class="activity-title">활동 1: 나만의 캐릭터 만들기</div>
             <div class="activity-desc">
@@ -203,40 +322,97 @@
                 <span class="step-number">1</span>
                 <div>
                     스프라이트 추가(+) 버튼을 누르고 <strong>[📷 촬영하기]</strong>를 선택해요.
+                    <div class="step-img-container">
+                        <img src="https://happyhyeok.github.io/octostudio/1.jpg" class="step-screenshot" alt="촬영하기 버튼">
+                        <img src="https://happyhyeok.github.io/octostudio/2.jpg" class="step-screenshot" alt="촬영 화면">
+                        <img src="https://happyhyeok.github.io/octostudio/3.jpg" class="step-screenshot" alt="선택 완료">
+                    </div>
                 </div>
             </li>
             <li class="step-item">
                 <span class="step-number">2</span>
                 <div>
                     카메라로 내 얼굴을 찰칵! 찍고, 얼굴 모양을 따라 예쁘게 오려주세요.
+                    <div class="step-img-container">
+                        <img src="https://happyhyeok.github.io/octostudio/4.jpg" class="step-screenshot" alt="촬영 후 확인">
+                        <img src="https://happyhyeok.github.io/octostudio/5.jpg" class="step-screenshot" alt="오리기 도구">
+                        <img src="https://happyhyeok.github.io/octostudio/6.jpg" class="step-screenshot" alt="캐릭터 완성">
+                    </div>
                 </div>
             </li>
             <li class="step-item">
                 <span class="step-number">3</span>
                 <div>
-                    아래 그림처럼 블록을 연결해서 내 캐릭터가 말을 하게 해보세요.
+                    배경도 추가하세요. 마음에 드는 배경을 골라보세요!
+                    <div class="step-img-container">
+                        <img src="https://happyhyeok.github.io/octostudio/7.jpg" class="step-screenshot" alt="배경 추가">
+                    </div>
+                </div>
+            </li>
+
+            <li class="step-item">
+                <span class="step-number">4</span>
+                <div>
+                    <strong>[미션 1]</strong> 시작하면 나를 소개해요.<br>
+                    작품이 시작되면 <strong>"안녕? 나는 OOO이야"</strong>라고 말하게 코딩해 보세요.
+                    
+                    <div class="code-area">
+                        <p>👇 힌트: '시작 블록'과 '말하기 블록'이 필요해요!</p>
+                        <img src="https://happyhyeok.github.io/octostudio/8_1.png" class="hint-img" alt="자기소개 코드 힌트">
+                    </div>
+                </div>
+            </li>
+
+            <li class="step-item">
+                <span class="step-number">5</span>
+                <div>
+                    <strong>[준비]</strong> 새로운 스프라이트를 추가해요.<br>
+                    플러스(+) 버튼을 눌러서 내가 좋아하는 물건이나 동물을 골라보세요.
+                    <div class="step-img-container">
+                        <img src="https://happyhyeok.github.io/octostudio/8_3.jpg" class="step-screenshot" alt="스프라이트 추가 안내">
+                    </div>
+                </div>
+            </li>
+
+            <li class="step-item">
+                <span class="step-number">6</span>
+                <div>
+                    <strong>[미션 2]</strong> 취미를 소개하는 코딩을 해요.<br>
+                    방금 추가한 물건을 <strong>터치하면 소리를 내면서 뱅글 돌게</strong> 만들어 보세요.
+                    
+                    <div class="code-area">
+                        <p>👇 힌트: '누르면', '회전하기', '소리 재생' 블록을 찾아보세요!</p>
+                        <img src="https://happyhyeok.github.io/octostudio/8_2.png" class="hint-img" alt="취미 소개 코드 힌트">
+                        <br><br>
+                        <p style="color: #3b82f6; font-size: 1.2rem;">
+                            "완성되면 물건을 손가락으로 톡! 눌러보세요."
+                        </p>
+                    </div>
+                </div>
+            </li>
+
+            <li class="step-item">
+                <span class="step-number">7</span>
+                <div>
+                    <strong>[완성]</strong> 만든 작품을 영상으로 저장해 볼까요?<br>
+                    위쪽의 버튼을 눌러서 '비디오로 내보내기'를 선택하세요.
+                    <div class="step-img-container">
+                        <img src="https://happyhyeok.github.io/octostudio/9.jpg" class="step-screenshot" alt="메뉴 버튼">
+                        <img src="https://happyhyeok.github.io/octostudio/10.jpg" class="step-screenshot" alt="내보내기 선택">
+                        <img src="https://happyhyeok.github.io/octostudio/11.jpg" class="step-screenshot" alt="비디오로 내보내기">
+                        <img src="https://happyhyeok.github.io/octostudio/12.jpg" class="step-screenshot" alt="저장 완료">
+                    </div>
                 </div>
             </li>
         </ul>
-
-        <div class="code-area">
-            <p>👇 블록을 이렇게 연결해 보세요!</p>
-            <img src="https://via.placeholder.com/150x60/f5a623/ffffff?text=터치하면" class="block-img" alt="시작 블록">
-            <span class="arrow">➡</span>
-            <img src="https://via.placeholder.com/150x60/4a90e2/ffffff?text=말하기(안녕!)" class="block-img" alt="말하기 블록">
-            
-            <br><br>
-            <small>* '안녕!' 글자를 눌러서 하고 싶은 말로 바꿔보세요.</small>
-        </div>
     </div>
 
-    <div class="activity-card">
+    <div id="act2" class="activity-card">
         <div class="activity-header">
-            <div class="activity-title">활동 2: 가방 이동시키기</div>
+            <div class="activity-title">활동 2: 제자리에 정리해요</div>
             <div class="activity-desc">
-                "가방아, 학교로 가자!"<br>
-                가방을 손가락으로 톡! 누르면 원하는 곳으로 이동하게 해볼까요?<br>
-                가방이 반짝이며 움직이도록 코딩해 봐요.
+                "어? 물건이 어지러져 있네?"<br>
+                새로운 프로젝트를 열어서, 물건을 터치하면 제자리로 슝~ 이동해서 정리되도록 만들어 볼까요?
             </div>
         </div>
 
@@ -244,36 +420,76 @@
             <li class="step-item">
                 <span class="step-number">1</span>
                 <div>
-                    배경과 <strong>'가방'</strong> 그림을 화면에 추가해 주세요.
+                    <strong>[새 시작]</strong> 처음으로 돌아가서 새 프로젝트를 시작해요.<br>
+                    왼쪽 위의 <strong>집 모양(홈)</strong>을 누르고, <strong>새 프로젝트 만들기(+)</strong>를 눌러주세요.
+                    <div class="step-img-container">
+                        <img src="https://happyhyeok.github.io/octostudio/2_1.jpg" class="step-screenshot" alt="홈 버튼 누르기">
+                        <img src="https://happyhyeok.github.io/octostudio/2_2.jpg" class="step-screenshot" alt="새 프로젝트 추가">
+                    </div>
                 </div>
             </li>
+
             <li class="step-item">
                 <span class="step-number">2</span>
                 <div>
-                    가방이 도착할 곳으로 미리 가방을 옮겨놓고 코딩을 시작해요.
+                    <strong>스프라이트 추가하기</strong>를 눌러, 정리정돈할 물건을 하나 추가하세요.<br>
+                    가방, 연필, 장난감 등 정리하고 싶은 것을 골라보세요.
+                    <div class="step-img-container">
+                        <img src="https://happyhyeok.github.io/octostudio/2_3.jpg" class="step-screenshot" alt="스프라이트 추가">
+                    </div>
+                </div>
+            </li>
+
+            <li class="step-item">
+                <span class="step-number">3</span>
+                <div>
+                    <strong>'촬영하기'</strong>를 눌러 책상 사진을 찍으세요.<br>
+                    물건이 원래 있어야 할 자리가 잘 보이게 찰칵! 찍어주세요.
+                    <div class="step-img-container">
+                        <img src="https://happyhyeok.github.io/octostudio/2_4.jpg" class="step-screenshot" alt="카메라 촬영">
+                    </div>
+                </div>
+            </li>
+            
+            <li class="step-item">
+                <span class="step-number">4</span>
+                <div>
+                    <strong>[미션]</strong> 물건을 터치하면 제자리로 이동하게 코딩해 보세요.<br>
+                    먼저 물건을 손가락으로 끌어서 도착할 장소(정리할 곳)에 놓은 뒤 코딩하세요.
+
+                    <div class="code-area">
+                        <p>👇 힌트: 아래 그림을 보고 알맞은 블록을 찾아보세요!</p>
+                        <img src="https://happyhyeok.github.io/octostudio/2_5.png" class="hint-img" alt="정리정돈 코딩 블록 힌트">
+                        <br><br>
+                        <p style="color: #3b82f6; font-size: 1.2rem;">
+                            "성공하면 물건이 반짝이면서 제자리로 찾아갈 거예요."
+                        </p>
+                    </div>
+                </div>
+            </li>
+
+            <li class="step-item">
+                <span class="step-number">5</span>
+                <div>
+                    <strong>[완성]</strong> 정리정돈하는 모습을 영상으로 저장해 볼까요?<br>
+                    위쪽의 버튼을 눌러서 '비디오로 내보내기'를 선택하세요.
+                    <div class="step-img-container">
+                        <img src="https://happyhyeok.github.io/octostudio/9.jpg" class="step-screenshot" alt="메뉴 버튼">
+                        <img src="https://happyhyeok.github.io/octostudio/10.jpg" class="step-screenshot" alt="내보내기 선택">
+                        <img src="https://happyhyeok.github.io/octostudio/11.jpg" class="step-screenshot" alt="비디오로 내보내기">
+                        <img src="https://happyhyeok.github.io/octostudio/12.jpg" class="step-screenshot" alt="저장 완료">
+                    </div>
                 </div>
             </li>
         </ul>
-
-        <div class="code-area">
-            <p>👇 가방이 움직이고 반짝이게 만들어 보세요!</p>
-            
-            <img src="https://via.placeholder.com/150x60/f5a623/ffffff?text=터치하면" class="block-img" alt="시작 블록">
-            <span class="arrow">➡</span>
-            <img src="https://via.placeholder.com/150x60/7ed321/ffffff?text=위치로+이동" class="block-img" alt="이동 블록">
-            <span class="arrow">➡</span>
-            <img src="https://via.placeholder.com/150x60/bd10e0/ffffff?text=반짝이기" class="block-img" alt="효과 블록">
-            
-        </div>
     </div>
 
-    <div class="activity-card">
+    <div id="act3" class="activity-card">
         <div class="activity-header">
-            <div class="activity-title">활동 3: 재미있는 동작 만들기</div>
+            <div class="activity-title">활동 3: 홀로그램 영상 만들기</div>
             <div class="activity-desc">
-                "축구공은 빙글빙글! 강아지는 멍멍!"<br>
-                여러 가지 캐릭터들이 각자 다르게 움직이게 해볼까요?<br>
-                내 마음대로 재미있는 동작을 만들어 보세요.
+                "우와! 캐릭터가 공중에 떠 있는 것 같아!"<br>
+                4명의 친구들이 빙글빙글 도는 신기한 홀로그램 영상을 만들어 봐요.
             </div>
         </div>
 
@@ -281,30 +497,103 @@
             <li class="step-item">
                 <span class="step-number">1</span>
                 <div>
-                    축구공, 강아지, 고양이 등 좋아하는 친구들을 많이 불러오세요.
+                    <strong>[새 시작]</strong> 처음으로 돌아가서 새 프로젝트를 시작해요.<br>
+                    왼쪽 위의 <strong>집 모양(홈)</strong>을 누르고, <strong>새 프로젝트 만들기(+)</strong>를 눌러주세요.
+                    <div class="step-img-container">
+                        <img src="https://happyhyeok.github.io/octostudio/2_1.jpg" class="step-screenshot" alt="홈 버튼 누르기">
+                        <img src="https://happyhyeok.github.io/octostudio/2_2.jpg" class="step-screenshot" alt="새 프로젝트 추가">
+                    </div>
                 </div>
             </li>
+
             <li class="step-item">
                 <span class="step-number">2</span>
                 <div>
-                    <strong>중요!</strong> 움직이고 싶은 친구를 먼저 콕! 누르고 코딩해야 해요.
+                    <strong>[준비]</strong> 배경과 스프라이트를 설정해요.<br>
+                    <br>
+                    <strong>1. 배경을 추가해요.</strong>
+                    <div class="step-img-container">
+                         <img src="https://happyhyeok.github.io/octostudio/3_1.jpg" class="step-screenshot" alt="배경 추가하기">
+                    </div>
+                    <br>
+                    <strong>2. 스프라이트를 추가해요.</strong><br>
+                    ('얼굴'만 있는 캐릭터를 고르면 더 실감나요!)
+                </div>
+            </li>
+
+            <li class="step-item">
+                <span class="step-number">3</span>
+                <div>
+                    <strong>[배치]</strong> 스프라이트를 복사해서 십자가(+) 모양을 만들어요.<br>
+                    <br>
+                    <strong>1. 스프라이트를 복사해요.</strong>
+                    <div class="step-img-container">
+                        <img src="https://happyhyeok.github.io/octostudio/3_2.jpg" class="step-screenshot" alt="복사 버튼">
+                        <img src="https://happyhyeok.github.io/octostudio/3_3.jpg" class="step-screenshot" alt="복사된 스프라이트">
+                    </div>
+                    <br><br>
+                    <strong>2. 복사한 스프라이트를 오른쪽으로 90도 회전시켜요.</strong>
+                    <div class="step-img-container">
+                        <img src="https://happyhyeok.github.io/octostudio/3_4.png" class="step-screenshot" alt="90도 회전">
+                    </div>
+                    <br><br>
+                    <strong>3. 스프라이트를 두 개 더 복사해서 총 4개를 만들고 방향을 회전시켜요.</strong>
+                    <div class="code-area" style="text-align: left; padding: 20px;">
+                        <ul style="list-style: none; padding-left: 0; font-size: 1.2rem;">
+                            <li>➡️ <strong>오른쪽 캐릭터:</strong> 오른쪽으로 90도 회전</li>
+                            <li>⬇️ <strong>아래쪽 캐릭터:</strong> 180도 회전 (거꾸로)</li>
+                            <li>⬅️ <strong>왼쪽 캐릭터:</strong> 왼쪽으로 90도 (270도) 회전</li>
+                        </ul>
+                    </div>
+                    <div class="step-img-container">
+                        <img src="https://happyhyeok.github.io/octostudio/3_5.jpg" class="step-screenshot" alt="4방향 배치 완성 모습">
+                    </div>
+                </div>
+            </li>
+
+            <li class="step-item">
+                <span class="step-number">4</span>
+                <div>
+                    <strong>[코딩 1]</strong> 스프라이트가 빙글빙글 돌게 만들어요.<br>
+                    제일 처음 만든(위쪽) 캐릭터에 아래와 같은 코드를 만들어주세요.
+                    <div class="step-img-container">
+                        <img src="https://happyhyeok.github.io/octostudio/3_8.png" class="step-screenshot" alt="회전 코드 예시">
+                    </div>
+                </div>
+            </li>
+
+            <li class="step-item">
+                <span class="step-number">5</span>
+                <div>
+                    <strong>[코딩 2]</strong> 모든 스프라이트에게 코드를 보내요.<br>
+                    완성된 코드를 손가락으로 꾹 눌러서 다른 캐릭터들에게 끌어다 주세요.<br>
+                    (4명의 친구들이 모두 빙글빙글 돌게 돼요!)
+                    <div class="step-img-container">
+                        <img src="https://happyhyeok.github.io/octostudio/3_9.jpg" class="step-screenshot" alt="코드 복사하기">
+                    </div>
+                </div>
+            </li>
+
+            <li class="step-item">
+                <span class="step-number">6</span>
+                <div>
+                    <strong>[음악]</strong> 첫 번째 캐릭터가 음악을 틀게 해요.<br>
+                    음악이 나오면 홀로그램이 더 멋져 보일 거예요!
+                    <div class="step-img-container">
+                        <img src="https://happyhyeok.github.io/octostudio/3_6.jpg" class="step-screenshot" alt="음악과 회전 코딩">
+                        <img src="https://happyhyeok.github.io/octostudio/3_7.png" class="step-screenshot" alt="코딩 블록 상세">
+                    </div>
+                </div>
+            </li>
+
+            <li class="step-item">
+                <span class="step-number">7</span>
+                <div>
+                    <strong>[녹화]</strong> 홀로그램 영상을 저장해요.<br>
+                    위쪽의 <strong>녹화 버튼</strong>을 눌러서 움직이는 영상을 앨범에 저장하세요.
                 </div>
             </li>
         </ul>
-
-        <div class="code-area">
-            <p>⚽ <strong>축구공</strong>은 빙글빙글 돌아요</p>
-            <img src="https://via.placeholder.com/150x60/f5a623/ffffff?text=터치하면" class="block-img">
-            <span class="arrow">➡</span>
-            <img src="https://via.placeholder.com/150x60/7ed321/ffffff?text=회전하기" class="block-img">
-            
-            <hr style="margin: 20px 0; border: 0; border-top: 1px dashed #ccc;">
-
-            <p>🐶 <strong>강아지</strong>는 소리를 내요</p>
-            <img src="https://via.placeholder.com/150x60/f5a623/ffffff?text=터치하면" class="block-img">
-            <span class="arrow">➡</span>
-            <img src="https://via.placeholder.com/150x60/4a90e2/ffffff?text=재생하기" class="block-img">
-        </div>
     </div>
 
 </div>
